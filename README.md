@@ -1,30 +1,74 @@
-# React + TypeScript + Vite
+# vite-template-doly
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React + TypeScript + Vite
 
-Currently, two official plugins are available:
+## 开发
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+本地开发
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-};
+```shell
+pnpm dev
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+构建
+
+```shell
+pnpm build
+```
+
+本地预览构建产物
+
+> 如果需要本地预览构建产物，构建时 `base` 配置为 `/` 。
+
+```shell
+pnpm preview
+```
+
+分析构建产物
+
+```shell
+pnpm analyze
+```
+
+## 常见问题
+
+### 兼容低版本浏览器？
+
+> 参考：[@vitejs/plugin-legacy](https://github.com/vitejs/vite/tree/main/packages/plugin-legacy)
+
+**比如兼容 `ie11`**
+
+安装依赖
+
+```shell
+pnpm add @vitejs/plugin-legacy terser -D
+```
+
+`vite.config.ts` 配置
+
+```diff
++ import legacy from '@vitejs/plugin-legacy';
+
+export default defineConfig({
+  plugins: [
+    // ...,
++    legacy({
++      targets: ['ie >= 11'],
++      additionalLegacyPolyfills: ['regenerator-runtime/runtime'],
++    }),
+  ],
+
+  // ...,
+  build: {
+    // ...,
++    minify: 'terser',
+  },
+});
+```
+
+## 推荐
+
+## 参考
+
+- [vite](https://cn.vitejs.dev/)
+- [vite-plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc)
