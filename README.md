@@ -8,6 +8,9 @@ React + TypeScript + Vite
 
 ```shell
 pnpm dev
+
+# 生产模式
+pnpm dev --mode production
 ```
 
 构建

@@ -11,17 +11,17 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      '@': resolve(__dirname, './src'),
-    },
+      '@': resolve(__dirname, './src')
+    }
   },
   css: {
     postcss: {
-      plugins: [autoprefixer({}), cssnano()],
-    },
+      plugins: [autoprefixer({}), cssnano()]
+    }
   },
   base: '/',
   build: {
     outDir: BUILD_PATH,
-    sourcemap: !!GENERATE_SOURCEMAP,
-  },
+    sourcemap: !!GENERATE_SOURCEMAP
+  }
 });
