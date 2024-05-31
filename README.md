@@ -2,7 +2,7 @@
 
 [React] + [TypeScript] + [Vite]
 
-基于 [vite-plugin-react-swc] 扩展的脚手架，增加以下特性：
+基于 [create-vite/template-react-ts] 扩展的脚手架，增加以下特性：
 
 - 🚀 内置基础组件，开箱即用，支持页面切换动画
 - 🌈 支持 Less、Postcss(autoprefixer、cssnano)
@@ -132,7 +132,7 @@ VITE_APP_API='https://api.example.com'
 [react]: https://react.dev/
 [typescript]: https://www.typescriptlang.org/
 [vite]: https://cn.vitejs.dev/
-[vite-plugin-react-swc]: https://github.com/vitejs/vite-plugin-react-swc
+[create-vite/template-react-ts]: https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts
 [vite-plugin-mock-dev-server]: https://github.com/pengzhanbo/vite-plugin-mock-dev-server
 [@vitejs/plugin-legacy]: https://github.com/vitejs/vite/tree/main/packages/plugin-legacy
 [valtio]: https://valtio.pmnd.rs/
