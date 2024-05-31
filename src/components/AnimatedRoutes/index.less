@@ -1,0 +1,40 @@
+.route-animated {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+// ----- route transition start
+.route-forward-enter {
+  transform: translate3d(100%, 0, 0);
+}
+
+.route-forward-enter-active {
+  z-index: 2;
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.3s;
+}
+
+.route-forward-exit {
+  transform: translate3d(-20%, 0, 0);
+  transition: transform 0.3s;
+}
+
+.route-backward-enter {
+  transform: translate3d(-20%, 0, 0);
+}
+
+.route-backward-enter-active {
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.3s;
+}
+
+.route-backward-exit {
+  transform: translate3d(100%, 0, 0);
+  transition: transform 0.3s;
+}
+
+.route-backward-exit-active {
+  z-index: 2;
+}
+// ----- route transition end
