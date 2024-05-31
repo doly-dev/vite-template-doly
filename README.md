@@ -4,8 +4,9 @@
 
 基于 [create-vite/template-react-ts] 扩展的脚手架，增加以下特性：
 
-- 🚀 内置基础组件，开箱即用，支持页面切换动画
-- 🌈 支持 Less、Postcss(autoprefixer、cssnano)
+- 🚀 内置路由组件、axios请求，开箱即用
+- ✨ 支持页面切换动画
+- 🌈 样式处理 Less、Postcss(autoprefixer、cssnano)
 - 🔗 本地开发 mock 数据
 - 🔍 代码规范检测(eslint、stylelint、commitlint)
 - 🎯 构建产物分析
@@ -87,7 +88,7 @@ export default defineConfig({
 +    }
   },
 -  esbuild: {
--    pure: isProd ? ['console.log'] : []
+-    drop: isProd ? ['console', 'debugger'] : []
 -  }
 });
 ```

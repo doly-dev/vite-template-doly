@@ -49,7 +49,7 @@ export default defineConfig(({ mode }) => {
       sourcemap: !!GENERATE_SOURCEMAP
     },
     esbuild: {
-      pure: isProd ? ['console.log'] : []
+      drop: isProd ? ['console', 'debugger'] : []
     }
   };
 });
