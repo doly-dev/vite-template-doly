@@ -14,35 +14,42 @@ if (MOCK !== 'none') {
 }
 
 // https://vitejs.dev/config/
-export default defineConfig({
-  plugins,
-  server: {
-    proxy: {
-      '^/api': {
-        target: 'https://example.com',
-        changeOrigin: true,
-        secure: false
-      },
-      '^/(user|repos)': {
-        target: 'https://api.github.com',
-        changeOrigin: true,
-        secure: false
+export default defineConfig(({ mode }) => {
+  const isProd = mode === 'production';
+
+  return {
+    plugins,
+    server: {
+      proxy: {
+        '^/api': {
+          target: 'https://example.com',
+          changeOrigin: true,
+          secure: false
+        },
+        '^/(user|repos)': {
+          target: 'https://api.github.com',
+          changeOrigin: true,
+          secure: false
+        }
       }
+    },
+    resolve: {
+      alias: {
+        '@': resolve(__dirname, './src')
+      }
+    },
+    css: {
+      postcss: {
+        plugins: [autoprefixer({}), cssnano()]
+      }
+    },
+    base: '/',
+    build: {
+      outDir: BUILD_PATH,
+      sourcemap: !!GENERATE_SOURCEMAP
+    },
+    esbuild: {
+      pure: isProd ? ['console.log'] : []
     }
-  },
-  resolve: {
-    alias: {
-      '@': resolve(__dirname, './src')
-    }
-  },
-  css: {
-    postcss: {
-      plugins: [autoprefixer({}), cssnano()]
-    }
-  },
-  base: '/',
-  build: {
-    outDir: BUILD_PATH,
-    sourcemap: !!GENERATE_SOURCEMAP
-  }
+  };
 });

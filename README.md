@@ -19,7 +19,7 @@ npx degit doly-dev/vite-template-doly myapp
 ```shell
 cd myapp
 pnpm install
-pnpm start
+pnpm dev
 ```
 
 ### 更多命令
@@ -77,7 +77,18 @@ export default defineConfig({
   build: {
     // ...,
 +    minify: 'terser',
++    terserOptions: {
++      compress: {
++        warnings: false,
++        drop_console: true,
++        drop_debugger: true,
++        pure_funcs: ['console.log']
++      }
++    }
   },
+-  esbuild: {
+-    pure: isProd ? ['console.log'] : []
+-  }
 });
 ```
 
