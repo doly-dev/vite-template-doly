@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useAsync } from 'rc-hooks';
+import router from '@/router';
 import PageContainer from '@/components/PageContainer';
 import { login } from '@/services/login';
 import { getLoginInfo, setLoginInfo, removeLoginInfo } from '@/utils/storage';
@@ -53,7 +53,8 @@ const Home = () => {
         <ul>
           {pages.map((item) => (
             <li key={item.name}>
-              <Link to={item.link}>{item.name}</Link>
+              {/* <Link to={item.link}>{item.name}</Link> */}
+              <a onClick={() => router.navigate(item.link)}></a>
             </li>
           ))}
         </ul>

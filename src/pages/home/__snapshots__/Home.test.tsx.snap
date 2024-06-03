@@ -1,0 +1,75 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`renders correctly 1`] = `
+<div>
+  <div
+    class="_page_142537"
+  >
+    <div
+      class="_wrapper_d21fde"
+    >
+      <h1>
+        vite-template-doly
+      </h1>
+      <p>
+        欢迎使用！
+      </p>
+      <mark>
+        注意：请根据业务修改 
+        <strong>
+          public
+        </strong>
+         目录下的文件和内容。
+      </mark>
+      <p>
+        路由在 src/router.tsx 中配置
+      </p>
+      <h3>
+        示例页面
+      </h3>
+      <ul>
+        <li>
+          <a />
+        </li>
+        <li>
+          <a />
+        </li>
+      </ul>
+      <h3>
+        mock 示例
+      </h3>
+      <p>
+        点击按钮调用 /api/login 接口
+      </p>
+      <button>
+        点击登录
+      </button>
+      <h3>
+        图片资源
+      </h3>
+      <p>
+        引入 public 目录文件，该目录用于存放第三方库、字体、图片等不需要构建的资源。如 logo ：
+      </p>
+      <img
+        alt="doly logo"
+        src="/logo.png"
+      />
+      <p>
+        引入项目中 src/assets 目录文件。如 示例图片：
+      </p>
+      <img
+        alt="react logo"
+        src="/src/assets/react.svg"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders correctly 2`] = `
+<button
+  disabled=""
+>
+  登录中
+</button>
+`;
