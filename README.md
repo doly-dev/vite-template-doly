@@ -128,6 +128,41 @@ VITE_APP_API='https://api.example.com'
 
 </details>
 
+<details>
+  <summary>删除测试相关依赖和配置</summary>
+
+1. 删除 `vitest.steup.ts` `src/pages/home/__snapshots__` `src/pages/home/Home.test.tsx` 文件
+
+2. `vite.config.ts` 删除配置
+
+```diff
+- /// <reference types="vitest" />
+
+-  // https://cn.vitest.dev/guide/
+-  test: {
+-    environment: 'jsdom',
+-    setupFiles: ['./vitest.setup.ts']
+-  }
+```
+
+3. `package.json` 删除依赖和脚本
+
+```diff
+"scripts": {
+-  "test": "vitest"
+},
+
+"devDependencies": {
+-  "@testing-library/jest-dom": "^6.4.5",
+-  "@testing-library/react": "^15.0.7",
+-  "@testing-library/user-event": "^14.5.2",
+-  "jsdom": "^24.1.0",
+-  "vitest": "^1.6.0",
+}
+```
+
+</details>
+
 ## 推荐
 
 - [ut2] - 基础工具方法
