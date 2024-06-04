@@ -54,7 +54,7 @@ const Home = () => {
           {pages.map((item) => (
             <li key={item.name}>
               {/* <Link to={item.link}>{item.name}</Link> */}
-              <a onClick={() => router.navigate(item.link)}></a>
+              <a onClick={() => router.navigate(item.link)}>{item.name}</a>
             </li>
           ))}
         </ul>

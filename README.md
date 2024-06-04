@@ -4,9 +4,9 @@
 
 基于 [create-vite/template-react-ts] 扩展的脚手架，增加以下特性：
 
-- 🚀 内置路由组件、axios请求，开箱即用
+- 🚀 开箱即用，内置路由组件、axios请求
 - ✨ 支持页面切换动画
-- 🌈 样式处理 Less、Postcss(autoprefixer、cssnano)
+- 🌈 样式处理，Less、Postcss(autoprefixer、cssnano)
 - 🔗 本地开发 mock 数据
 - 🔍 代码规范检测(eslint、stylelint、commitlint)
 - 🎯 构建产物分析
@@ -163,6 +163,62 @@ VITE_APP_API='https://api.example.com'
 
 </details>
 
+<details>
+  <summary>关闭页面切换动画</summary>
+
+`src/router.tsx`
+
+```diff
+const router = createHashRouter(
+  createRoutesFromElements(
+    <Route
+    path="*"
+    element={(
+      <AnimatedRoutes
+        routes={routes}
++       animated={false}
+    />
+    )} />
+  )
+);
+```
+
+</details>
+
+<details>
+  <summary>非组件模块中如何跳转页面</summary>
+
+> 参考：[React Router]
+
+正常页面中的跳转
+
+```typescript
+import { useNavigate } from 'react-router-dom'
+
+function Component(){
+  const navigate = useNavigate();
+  return (
+    <div>
+      <a onClick={()=>{navigate('/path')}}></a>
+    </div>
+  )
+}
+```
+
+非组件模块
+
+如 `utils/utils.ts`
+
+```typescript
+import router from '@/router';
+
+function toLoginPage() {
+  router.navigate('/login');
+}
+```
+
+</details>
+
 ## 推荐
 
 - [ut2] - 基础工具方法
@@ -195,3 +251,4 @@ VITE_APP_API='https://api.example.com'
 [mobile-more]: https://doly-dev.github.io/mobile-more/latest/index.html#/
 [antd]: https://ant-design.antgroup.com/index-cn
 [antd-more]: https://doly-dev.github.io/mobile-more/latest/index.html#/
+[React Router]: https://reactrouter.com/
