@@ -172,13 +172,14 @@ VITE_APP_API='https://api.example.com'
 const router = createHashRouter(
   createRoutesFromElements(
     <Route
-    path="*"
-    element={(
-      <AnimatedRoutes
-        routes={routes}
-+       animated={false}
+      path="*"
+      element={(
+        <AnimatedRoutes
+          routes={routes}
++         animated={false}
+        />
+      )}
     />
-    )} />
   )
 );
 ```
@@ -219,6 +220,55 @@ function toLoginPage() {
 
 </details>
 
+<details>
+  <summary>使用 PWA</summary>
+
+> 参考：[vite-plugin-pwa]
+
+安装依赖
+
+```shell
+pnpm add vite-plugin-pwa -D
+```
+
+`vite.config.ts` 配置
+
+```diff
++ import { VitePWA } from 'vite-plugin-pwa';
+
+const plugins = [
+  react(),
++  VitePWA({
++    registerType: 'autoUpdate',
++    devOptions: {
++      enabled: true
++    },
++    workbox: {
++      globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg,jpeg,gif}']
++    },
++    manifest: {
++      name: 'vite-template-doly',
++      description: 'a vite template',
++      short_name: 'VTD',
++      display: 'standalone',
++      background_color: '#ffffff',
++      theme_color: '#ffffff',
++      icons: [
++        {
++          src: '/logo.png',
++          sizes: '144x144',
++          type: 'image/png'
++        }
++      ]
++    }
++  })
+];
+```
+
+本地开发可以在浏览器开发者工具 `应用-Service workers` 查看。
+
+</details>
+
 ## 推荐
 
 - [ut2] - 基础工具方法
@@ -252,3 +302,4 @@ function toLoginPage() {
 [antd]: https://ant-design.antgroup.com/index-cn
 [antd-more]: https://doly-dev.github.io/mobile-more/latest/index.html#/
 [React Router]: https://reactrouter.com/
+[vite-plugin-pwa]: https://vite-pwa-org.netlify.app/
