@@ -2,8 +2,6 @@
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
-import autoprefixer from 'autoprefixer';
-import cssnano from 'cssnano';
 import mockPlugin from 'vite-plugin-mock-dev-server';
 
 const { GENERATE_SOURCEMAP, BUILD_PATH, MOCK } = process.env;
@@ -37,11 +35,6 @@ export default defineConfig(({ mode }) => {
     resolve: {
       alias: {
         '@': resolve(__dirname, './src')
-      }
-    },
-    css: {
-      postcss: {
-        plugins: [autoprefixer({}), cssnano()]
       }
     },
     base: '/',

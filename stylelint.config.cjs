@@ -2,7 +2,7 @@ module.exports = {
   extends: [
     'stylelint-config-standard',
     'stylelint-config-css-modules',
-    'stylelint-no-unsupported-browser-features',
+    'stylelint-no-unsupported-browser-features'
   ],
   plugins: ['stylelint-declaration-block-no-ignored-properties'],
   customSyntax: 'postcss-less',
@@ -24,8 +24,8 @@ module.exports = {
     'value-keyword-case': ['lower', { ignoreKeywords: ['optimizeLegibility'] }],
     'selector-no-vendor-prefix': [
       true,
-      { ignoreSelectors: ['::-webkit-input-placeholder', '/-moz-.*/'] },
-    ],
+      { ignoreSelectors: ['::-webkit-input-placeholder', '/-moz-.*/'] }
+    ]
   },
-  ignoreFiles: ['**/*.js', '**/*.jsx', '**/*.tsx', '**/*.ts'],
+  ignoreFiles: ['**/*.js', '**/*.jsx', '**/*.tsx', '**/*.ts']
 };
