@@ -54,7 +54,16 @@ const Home = () => {
           {pages.map((item) => (
             <li key={item.name}>
               {/* <Link to={item.link}>{item.name}</Link> */}
-              <a onClick={() => router.navigate(item.link)}>{item.name}</a>
+              {/* 这里是为了演示 router 用法，建议使用 Link */}
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  router.navigate(item.link);
+                }}
+              >
+                {item.name}
+              </a>
             </li>
           ))}
         </ul>
