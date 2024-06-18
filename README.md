@@ -269,6 +269,53 @@ const plugins = [
 
 </details>
 
+<details>
+  <summary>使用 Tailwind CSS</summary>
+
+> 参考：[Install Tailwind CSS with Vite](https://tailwindcss.com/docs/guides/vite)、[Using with Preprocessors](https://tailwindcss.com/docs/using-with-preprocessors)
+
+如果使用 Tailwind CSS 的话，不建议再使用 `less` ，可以先卸载 `pnpm rm less` ，然后将 `*.less` 文件名改为 `*.css` 。
+
+安装 Tailwind CSS
+
+```shell
+pnpm add tailwindcss -D
+
+npx tailwindcss init -p
+```
+
+`postcss.config.js` 配置
+
+```diff
+export default {
+  plugins: {
+    // ...
++   tailwindcss: {}
+  }
+};
+```
+
+`tailwind.config.js` 配置
+
+```diff
+/** @type {import('tailwindcss').Config} */
+export default {
++ content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  //...
+}
+```
+
+`src/index.css` 添加 Tailwind 指令
+
+```diff
++ @tailwind base;
++ @tailwind components;
++ @tailwind utilities;
+// ...
+```
+
+</details>
+
 ## 推荐
 
 - [ut2] - 基础工具方法
