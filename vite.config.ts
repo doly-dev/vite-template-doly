@@ -6,18 +6,13 @@ import mockPlugin from 'vite-plugin-mock-dev-server';
 
 const { GENERATE_SOURCEMAP, BUILD_PATH, MOCK } = process.env;
 
-const plugins = [react()];
-
-if (MOCK !== 'none') {
-  plugins.push(mockPlugin());
-}
-
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   const isProd = mode === 'production';
+  const useMock = MOCK !== 'none';
 
   return {
-    plugins,
+    plugins: [react(), useMock && mockPlugin()],
     server: {
       proxy: {
         '^/api': {

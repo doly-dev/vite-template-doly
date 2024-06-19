@@ -236,8 +236,10 @@ pnpm add vite-plugin-pwa -D
 ```diff
 + import { VitePWA } from 'vite-plugin-pwa';
 
-const plugins = [
-  react(),
+
+export default defineConfig({
+  plugins: [
+    // ...,
 +  VitePWA({
 +    registerType: 'autoUpdate',
 +    devOptions: {
@@ -262,10 +264,14 @@ const plugins = [
 +      ]
 +    }
 +  })
-];
+  ],
+  // ...
+})
 ```
 
 本地开发可以在浏览器开发者工具 `应用-Service workers` 查看。
+
+_注意： 如果要取消对 Service Worker 注册，请查阅 [Unregister Service Worker](https://vite-pwa-org.netlify.app/guide/unregister-service-worker.html#unregister-service-worker)。如果只是本地开发或预览取消注册，可以在`浏览器开发工具-应用-Service Worker` 点击 “取消注册” 即可。_
 
 </details>
 
