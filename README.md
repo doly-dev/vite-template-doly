@@ -271,7 +271,7 @@ export default defineConfig({
 
 本地开发可以在浏览器开发者工具 `应用-Service workers` 查看。
 
-_注意： 如果要取消对 Service Worker 注册，请查阅 [Unregister Service Worker](https://vite-pwa-org.netlify.app/guide/unregister-service-worker.html#unregister-service-worker)。如果只是本地开发或预览取消注册，可以在`浏览器开发工具-应用-Service Worker` 点击 “取消注册” 即可。_
+_注意： 如果要取消已注册的 Service Worker ，请查阅 [Unregister Service Worker](https://vite-pwa-org.netlify.app/guide/unregister-service-worker.html#unregister-service-worker)。如果只是本地开发或预览取消注册 Service Worker ，可以在`浏览器开发工具-应用-Service Worker` 点击 “取消注册” 即可。_
 
 </details>
 
@@ -281,6 +281,8 @@ _注意： 如果要取消对 Service Worker 注册，请查阅 [Unregister Serv
 > 参考：[Install Tailwind CSS with Vite](https://tailwindcss.com/docs/guides/vite)、[Using with Preprocessors](https://tailwindcss.com/docs/using-with-preprocessors)
 
 如果使用 Tailwind CSS 的话，不建议再使用 `less` ，可以先卸载 `pnpm rm less` ，然后将 `*.less` 文件名改为 `*.css` 。
+
+> 卸载 `less` 后，如果还要使用嵌套规则和 `import` ，需要安装对应的 `postcss` 插件。
 
 安装 Tailwind CSS
 
