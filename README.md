@@ -40,7 +40,7 @@ pnpm commit                    # 运行 commitizen
 
 ## 常见问题
 
-> 如遇下列问题或使用场景，[请点击查阅更多信息](https://github.com/doly-dev/vite-template-doly/wiki/FAQ) 。
+> 如遇下列问题或使用场景，[请点击查阅更多信息](https://github.com/doly-dev/vite-template-doly/wiki) 。
 
 - 配置 mock 和 proxy
 - 兼容低版本浏览器
