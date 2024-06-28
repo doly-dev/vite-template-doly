@@ -2,6 +2,8 @@
 
 CNAME
 LICENSE
+logs
+*.log
 package.json
 package-lock.json
 *.lock
@@ -18,10 +20,14 @@ pnpm-lock.yaml
 *.svg
 *.png
 *.jpg
+*.jpeg
 *.gif
 *.bmp
+*.ico
 
 /dist
+/dist-ssr
 /dist-analyze
+/dev-dist
 /build
 /coverage
