@@ -76,7 +76,7 @@ const Home = () => {
         <p>
           引入 public 目录文件，该目录用于存放第三方库、字体、图片等不需要构建的资源。如 logo ：
         </p>
-        <img src="/logo.png" alt="doly logo" />
+        <img src={`${import.meta.env.BASE_URL}logo.png`} alt="doly logo" />
         <p>引入项目中 src/assets 目录文件。如 示例图片：</p>
         <img src={reactLogo} alt="react logo" />
       </div>

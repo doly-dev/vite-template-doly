@@ -29,12 +29,16 @@ exports[`renders correctly 1`] = `
       </h3>
       <ul>
         <li>
-          <a>
+          <a
+            href="#"
+          >
             列表页
           </a>
         </li>
         <li>
-          <a>
+          <a
+            href="#"
+          >
             不存在的页面
           </a>
         </li>
