@@ -3,7 +3,7 @@ import { Mockjs } from 'mockjs-extend';
 import { MockHttpItem } from 'vite-plugin-mock-dev-server';
 
 // 模拟接口延迟时间
-const DELAY_TIME = 1000;
+const DELAY_TIME = 300;
 
 // 响应数据基础结构
 const ResponseBasicConstructor = {
@@ -40,7 +40,7 @@ export const mockData = (data: MockDataParam = {}) => {
 };
 
 // 模拟分页数据
-export const mockPageData = (pageData = {}) => {
+export const mockPageData = <T extends object>(pageData: T) => {
   return mockData({
     data: {
       'pageData|10': [pageData], // 对象列表
