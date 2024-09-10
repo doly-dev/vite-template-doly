@@ -25,13 +25,9 @@ function request<T = any>(url: string, options?: RequestOptions): Promise<T> {
   const defaultHeaders = token ? { [HEADER_TOKEN_NAME]: getLoginInfo()?.token } : {};
 
   // antd-mobile v5 Toast 组件加载示例
-  // let toastHandler: undefined | ToastHandler;
+  // const delayLoading = createDelayLoading();
   // if (showLoading) {
-  //   toastHandler = Toast.show({
-  //     icon: 'loading',
-  //     content: '加载中…',
-  //     duration: 0
-  //   });
+  //   delayLoading.show();
   // }
 
   return axios({
@@ -45,7 +41,7 @@ function request<T = any>(url: string, options?: RequestOptions): Promise<T> {
     ...restOptions
   })
     .then((res) => {
-      // toastHandler?.close();
+      // delayLoading.close();
 
       // 请求成功处理，一般会有其他逻辑处理。如登录过期、特殊响应码等
       const data = res.data || {};
@@ -57,7 +53,7 @@ function request<T = any>(url: string, options?: RequestOptions): Promise<T> {
       return data;
     })
     .catch((err) => {
-      // toastHandler?.close();
+      // delayLoading.close();
 
       // 请求失败处理，一般是全局错误提示
 
