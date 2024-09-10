@@ -2,6 +2,7 @@ import { useAsync } from 'rc-hooks';
 import { Link } from 'react-router-dom';
 import PageContainer from '@/components/PageContainer';
 import { getReposList } from '@/services/repos';
+import { isArray } from 'ut2';
 
 const ListPage = () => {
   const { data, loading } = useAsync(() => getReposList().then((res) => res.data), {
@@ -20,7 +21,7 @@ const ListPage = () => {
           </div>
         )}
         {!loading &&
-          Array.isArray(data) &&
+          isArray(data) &&
           data.length > 0 &&
           data.map(({ name, description }) => (
             <div key={name}>
