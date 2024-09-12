@@ -8,10 +8,12 @@ export const sessionCache = new Cache(STORE_NAMESPACE, {
 export const localCache = new Cache(STORE_NAMESPACE, {
   storage: window.localStorage
 });
-export const memoryCache = new Cache(STORE_NAMESPACE);
 
-export const session = new Storage(window.sessionStorage);
-export const local = new Storage(window.localStorage);
+// 相同域名下的单页应用，使用前缀区分不同应用的缓存
+const prefix = STORE_NAMESPACE + '_';
+export const memoryCache = new Cache(STORE_NAMESPACE, { prefix });
+export const session = new Storage(window.sessionStorage, { prefix });
+export const local = new Storage(window.localStorage, { prefix });
 
 // 登录信息
 const LOGIN_INFO_KEY = 'loginInfo';
