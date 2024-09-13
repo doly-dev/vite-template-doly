@@ -15,16 +15,15 @@ const ResponseBasicConstructor = {
 type MockHttpItemResponse = NonNullable<MockHttpItem['response']>;
 type MockHttpItemResponseParams = Parameters<MockHttpItemResponse>;
 type MockDataType = Record<string, any> | undefined | void;
-type MockDataParam =
-  | MockDataType
-  | ((
-      req: MockHttpItemResponseParams[0],
-      res: MockHttpItemResponseParams[1]
-    ) => MockDataType | Promise<MockDataType>);
+type MockFuncType<T = any> = (
+  req: MockHttpItemResponseParams[0],
+  res: MockHttpItemResponseParams[1]
+) => T | Promise<T>;
+type MockDataParam = MockDataType | MockFuncType<MockDataType>;
 
 // 模拟数据
 export const mockData = (data: MockDataParam = {}) => {
-  return async (req: MockHttpItemResponseParams[0], res: MockHttpItemResponseParams[1]) => {
+  const fn: MockFuncType = async (req, res) => {
     await sleep(DELAY_TIME);
 
     let realData = data;
@@ -37,6 +36,7 @@ export const mockData = (data: MockDataParam = {}) => {
     });
     res.end(JSON.stringify(result));
   };
+  return fn;
 };
 
 // 模拟分页数据
