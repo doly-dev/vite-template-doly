@@ -18,7 +18,7 @@ interface RequestOptions<D = any> extends Omit<AxiosRequestConfig<D>, 'url' | 'h
 function request<T = any>(url: string, options?: RequestOptions): Promise<T> {
   const {
     headers,
-    token,
+    token = true,
     // showLoading = true,
     ...restOptions
   } = options || {};

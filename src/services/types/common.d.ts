@@ -1,4 +1,4 @@
-// 响应数据
+// 响应结构
 export type ResponseType<T extends object = object> = {
   errCode: string; // 响应码
   errMsg: string; // 响应信息
