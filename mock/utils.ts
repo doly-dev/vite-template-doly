@@ -3,7 +3,7 @@ import { Mockjs } from 'mockjs-extend';
 import { MockHttpItem } from 'vite-plugin-mock-dev-server';
 
 // 模拟接口延迟时间
-const DELAY_TIME = 300;
+const DELAY_TIME = 100;
 
 // 响应数据基础结构
 const ResponseBasicConstructor = {
