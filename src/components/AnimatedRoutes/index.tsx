@@ -1,7 +1,7 @@
+import { isArray } from 'ut2';
 import { IndexRouteObject, NonIndexRouteObject, RouteObject } from 'react-router-dom';
 import AnimatedRoutes, { AnimatedRoutesProps } from './AnimatedRoutes';
 import AsyncComponent, { AsyncComponentProps } from '../AsyncComponent';
-import { isArray } from 'ut2';
 
 type CustomRouteExtend = {
   element?: AsyncComponentProps['component'];

@@ -11,7 +11,7 @@ const HEADER_TOKEN_NAME = 'Authorization'; // 请求头token名称
 interface RequestOptions<D = any> extends Omit<AxiosRequestConfig<D>, 'url' | 'headers'> {
   headers?: Record<string, any>;
   // showLoading?: boolean;
-  // showErrorMessage = true,
+  // showErrorMessage = true;
   token?: boolean;
 }
 
