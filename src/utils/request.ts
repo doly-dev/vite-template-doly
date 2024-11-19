@@ -8,7 +8,7 @@ const RESPONSE_SUCCESS_CODE = '0000'; // 响应成功响应码
 // const RESPONSE_EXPIRED_CODE = "9002"; // 登录态过期响应码
 const HEADER_TOKEN_NAME = 'Authorization'; // 请求头token名称
 
-interface RequestOptions<D = any> extends Omit<AxiosRequestConfig<D>, 'url' | 'headers'> {
+interface IRequestOptions<D = any> extends Omit<AxiosRequestConfig<D>, 'url' | 'headers'> {
   headers?: Record<string, any>;
   // showLoading?: boolean;
   // showErrorMessage = true;
@@ -19,7 +19,7 @@ interface RequestOptions<D = any> extends Omit<AxiosRequestConfig<D>, 'url' | 'h
  * 可在该模块编写部分业务逻辑，如请求头token，请求失败/登录过期/服务错误等处理
  * axios 文档：https://github.com/axios/axios#request-config
  */
-function request<T extends TResponse>(url: string, options?: RequestOptions) {
+function request<T extends TResponse>(url: string, options?: IRequestOptions) {
   const {
     headers,
     // showLoading = true,
