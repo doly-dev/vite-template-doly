@@ -1,5 +1,6 @@
 import eslint from '@eslint/js';
 import tseslint from 'typescript-eslint';
+import globals from 'globals';
 import reactRefresh from 'eslint-plugin-react-refresh';
 // ref: https://github.com/facebook/react/issues/28313#issuecomment-2407428442
 import reactHooks from 'eslint-plugin-react-hooks';
@@ -23,7 +24,10 @@ export default tseslint.config(
       'react-refresh': reactRefresh
     },
     languageOptions: {
-      parser: tseslint.parser
+      parser: tseslint.parser,
+      globals: {
+        ...globals.browser
+      }
     },
     rules: {
       '@typescript-eslint/no-explicit-any': 0,
