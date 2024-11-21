@@ -7,13 +7,7 @@ import reactHooks from 'eslint-plugin-react-hooks';
 
 export default tseslint.config(
   {
-    ignores: [
-      'dist/',
-      'dist-analyze/',
-      'dev-dist/',
-      'stylelint.config.cjs',
-      'commitlint.config.cjs'
-    ]
+    ignores: ['dist/', 'dist-analyze/', 'dev-dist/']
   },
   eslint.configs.recommended,
   tseslint.configs.recommended,
