@@ -2,9 +2,9 @@
 
 路由在 `src/router.tsx` 中配置。
 
-**特性**
+## 特性
 
-- 使用 [`react-router-dom@6`](https://reactrouter.com/docs/en/v6/api#api-reference)
+- 使用 [`react-router@7`](https://reactrouter.com/)
 - 支持路由切换动画，页面请使用 `PageContainer` 包裹
 
 ## API
@@ -17,7 +17,7 @@
 ### RouteObject
 
 ```typescript
-// import { RouteObject } from 'react-router-dom';
+// import { RouteObject } from 'react-router';
 
 export interface RouteObject {
   caseSensitive?: boolean;

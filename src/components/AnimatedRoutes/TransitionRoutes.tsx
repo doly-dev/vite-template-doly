@@ -6,7 +6,7 @@ import {
   Routes,
   RoutesProps,
   UNSAFE_LocationContext as LocationContext
-} from 'react-router-dom';
+} from 'react-router';
 import { TransitionGroup } from 'react-transition-group';
 import CSSTransition from './CSSTransition';
 import './index.less';

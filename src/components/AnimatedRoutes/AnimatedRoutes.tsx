@@ -1,5 +1,5 @@
 import React from 'react';
-import { RoutesProps, RouteObject, Routes } from 'react-router-dom';
+import { RoutesProps, RouteObject, Routes } from 'react-router';
 import TransitionRoutes from './TransitionRoutes';
 import createRoutes from './createRoutes';
 

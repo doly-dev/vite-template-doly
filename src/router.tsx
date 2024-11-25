@@ -1,4 +1,4 @@
-import { Route, createHashRouter, createRoutesFromElements } from 'react-router-dom';
+import { Route, createHashRouter, createRoutesFromElements } from 'react-router';
 import AnimatedRoutes, { TAnimatedRouteObject } from './components/AnimatedRoutes';
 
 const routes: TAnimatedRouteObject[] = [

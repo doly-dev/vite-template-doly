@@ -1,5 +1,5 @@
 import { useAsync } from 'rc-hooks';
-import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router';
 import PageContainer from '@/components/PageContainer';
 import { getReposByName } from '@/services/repos';
 

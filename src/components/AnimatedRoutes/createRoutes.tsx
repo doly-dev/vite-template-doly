@@ -1,4 +1,4 @@
-import { Route, RouteObject } from 'react-router-dom';
+import { Route, RouteObject } from 'react-router';
 import { isArray } from 'ut2';
 
 function createRoutes(routes: (RouteObject & { lazy?: any })[]) {

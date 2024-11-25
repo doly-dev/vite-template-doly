@@ -1,5 +1,5 @@
 import { useAsync } from 'rc-hooks';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import PageContainer from '@/components/PageContainer';
 import { getReposList } from '@/services/repos';
 import { isArray } from 'ut2';
