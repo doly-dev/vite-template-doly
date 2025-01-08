@@ -1,10 +1,10 @@
 import { defineMock } from 'vite-plugin-mock-dev-server';
-import { mockData } from './utils';
+import mockUtil from './utils';
 
 export default defineMock([
   {
     url: '/api/login',
-    response: mockData({
+    response: mockUtil.mockData({
       data: {
         username: '@cname',
         mobile: '@mobile',

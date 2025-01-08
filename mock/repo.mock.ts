@@ -1,5 +1,5 @@
 import { defineMock } from 'vite-plugin-mock-dev-server';
-import { mockData } from './utils';
+import mockUtil from './utils';
 
 const data = [
   {
@@ -19,14 +19,14 @@ const data = [
 export default defineMock([
   {
     url: '/users/doly-dev/repos',
-    response: mockData({
+    response: mockUtil.mockData({
       data
     }),
     method: 'GET'
   },
   {
     url: '/repos/doly-dev/:repoName',
-    response: mockData((req) => {
+    response: mockUtil.mockData((req) => {
       const { repoName } = req.params;
       return {
         data: data.find((item) => item.name === repoName)
