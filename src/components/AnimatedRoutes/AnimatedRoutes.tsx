@@ -3,7 +3,7 @@ import { RoutesProps, RouteObject, Routes } from 'react-router';
 import TransitionRoutes from './TransitionRoutes';
 import createRoutes from './createRoutes';
 
-export interface AnimatedRoutesProps extends RoutesProps {
+export interface AnimatedRoutesProps extends Omit<RoutesProps, 'location'> {
   routes: RouteObject[];
   animated?: boolean;
 }
