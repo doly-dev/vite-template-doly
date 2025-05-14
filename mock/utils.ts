@@ -6,7 +6,7 @@ type MockResponse = Parameters<MockHttpItemResponse>[1];
 
 const mockUtil = new MockUtilClass<MockRequest, MockResponse>({
   // 模拟请求延迟时间
-  delay: 100,
+  delay: 500,
   // 响应数据发送方法
   sendMethod: 'end',
   // 响应基本数据结构

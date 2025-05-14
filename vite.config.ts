@@ -2,7 +2,7 @@
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
-import mockPlugin from 'vite-plugin-mock-dev-server';
+import { mockDevServerPlugin } from 'vite-plugin-mock-dev-server';
 
 const { GENERATE_SOURCEMAP, BUILD_PATH, MOCK } = process.env;
 
@@ -12,7 +12,7 @@ export default defineConfig(({ mode }) => {
   const useMock = MOCK !== 'none';
 
   return {
-    plugins: [react(), useMock && mockPlugin()],
+    plugins: [react(), useMock && mockDevServerPlugin()],
     server: {
       proxy: {
         '^/api': {
