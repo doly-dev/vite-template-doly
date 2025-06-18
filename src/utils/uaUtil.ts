@@ -23,6 +23,7 @@ const ios = os === 'ios';
 const mobile = android || ios;
 const ie = isBrowser && (!!(window as any).ActiveXObject || 'ActiveXObject' in window);
 const weixin = /micromessenger/.test(ua);
+const miniProgram = is('miniProgram') || (window as any).__wxjs_environment === 'miniprogram';
 
 /**
  * @description 运行环境变量
@@ -65,7 +66,13 @@ const uaUtil = {
   /**
    * 是否运行在微信浏览器
    */
-  weixin
+  weixin,
+  /**
+   * 是否运行在微信小程序
+   *
+   * @see {@link https://developers.weixin.qq.com/miniprogram/dev/component/web-view.html|web-view}
+   */
+  miniProgram
 } as const;
 
 export default uaUtil;
