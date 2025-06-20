@@ -17,7 +17,8 @@ interface IRequestOptions<D = any> extends Omit<AxiosRequestConfig<D>, 'url' | '
 
 /**
  * 可在该模块编写部分业务逻辑，如请求头token，请求失败/登录过期/服务错误等处理
- * axios 文档：https://github.com/axios/axios#request-config
+ *
+ * @see {@link https://github.com/axios/axios#request-config | axios 官方文档}
  */
 function request<T extends TResponse>(url: string, options?: IRequestOptions) {
   const {

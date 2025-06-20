@@ -23,7 +23,8 @@ const ios = os === 'ios';
 const mobile = android || ios;
 const ie = isBrowser && (!!(window as any).ActiveXObject || 'ActiveXObject' in window);
 const weixin = /micromessenger/.test(ua);
-const miniProgram = is('miniProgram') || (window as any).__wxjs_environment === 'miniprogram';
+const miniProgram =
+  is('miniProgram') || (isBrowser && (window as any).__wxjs_environment === 'miniprogram');
 
 /**
  * @description 运行环境变量
