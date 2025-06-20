@@ -11,7 +11,9 @@
 - 🔍 代码规范检测(eslint、stylelint、commitlint)
 - 🎯 构建产物分析
 
-## 安装
+## 使用
+
+### 安装
 
 ```shell
 npx degit doly-dev/vite-template-doly myapp
