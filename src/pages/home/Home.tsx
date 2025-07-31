@@ -6,6 +6,7 @@ import { login } from '@/services/login';
 import { getLoginInfo, setLoginInfo, removeLoginInfo } from '@/utils/storage';
 import reactLogo from '@/assets/react.svg';
 import styles from './Home.module.less';
+import { filesDownload } from '@/services/files';
 
 const pages = [
   {
@@ -72,6 +73,10 @@ const Home = () => {
         <button disabled={loading} onClick={toggleLogin}>
           {logined ? '已登录，点击退出登录' : loading ? '登录中' : '点击登录'}
         </button>
+        <br />
+        <br />
+        <p>点击按钮调用 /api/files/download 接口</p>
+        <button onClick={() => filesDownload('id123')}>下载文件</button>
         <h3>图片资源</h3>
         <p>
           引入 public 目录文件，该目录用于存放第三方库、字体、图片等不需要构建的资源。如 logo ：

@@ -13,6 +13,7 @@ interface IRequestOptions<D = any> extends Omit<AxiosRequestConfig<D>, 'url' | '
   // showLoading?: boolean;
   // showErrorMessage = true;
   token?: boolean;
+  isDownload?: boolean;
 }
 
 /**
@@ -26,6 +27,7 @@ function request<T extends TResponse>(url: string, options?: IRequestOptions) {
     // showLoading = true,
     // showErrorMessage = true,
     token = true,
+    isDownload = false,
     ...restOptions
   } = options || {};
   const defaultHeaders = token ? { [HEADER_TOKEN_NAME]: getLoginInfo()?.token } : {};
@@ -44,6 +46,7 @@ function request<T extends TResponse>(url: string, options?: IRequestOptions) {
     url,
     baseURL: import.meta.env.VITE_APP_API, // 环境变量 .env/.env.develop/.env.production 设置
     method: 'POST',
+    responseType: isDownload ? 'blob' : undefined, // 下载文件时设置响应类型为 blob
     headers: {
       ...defaultHeaders,
       ...headers
@@ -61,6 +64,22 @@ function request<T extends TResponse>(url: string, options?: IRequestOptions) {
       //   logout();
       //   return Promise.reject(data);
       // }
+
+      if (isDownload) {
+        const type = res.headers['content-type'];
+        const disposition = res.headers['content-disposition'];
+        let filename: undefined | string;
+        if (disposition) {
+          filename = decodeURIComponent(disposition.replace(/\s*/g, '').split('filename=')[1]);
+        }
+        const blob = data as unknown as Blob;
+        return {
+          blob,
+          url: window.URL.createObjectURL(blob),
+          name: filename,
+          type: type || 'application/octet-stream'
+        } as unknown as T;
+      }
 
       if (data[RESPONSE_CODE_FIELD] !== RESPONSE_SUCCESS_CODE) {
         return Promise.reject(data);
