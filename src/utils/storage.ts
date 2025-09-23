@@ -3,9 +3,9 @@ import { Cache, Storage } from 'cache2';
 import { name } from '../../package.json';
 
 // 本地存储命名空间，建议使用项目名，可以区分同域下不同应用的缓存
-const STORE_NAMESPACE = name;
+export const STORE_NAMESPACE = name;
 
-// 支持数据过期时间的浏览器存储
+// 浏览器存储，支持数据过期时间
 export const sessionCache = new Cache(STORE_NAMESPACE, {
   storage: window.sessionStorage
 });
