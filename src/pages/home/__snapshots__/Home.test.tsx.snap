@@ -3,10 +3,10 @@
 exports[`renders correctly 1`] = `
 <div>
   <div
-    class="_page_142537"
+    class="_page_0fdfd7"
   >
     <div
-      class="_wrapper_d21fde"
+      class="_wrapper_a24a03"
     >
       <h1>
         vite-template-doly
@@ -51,6 +51,14 @@ exports[`renders correctly 1`] = `
       </p>
       <button>
         点击登录
+      </button>
+      <br />
+      <br />
+      <p>
+        点击按钮调用 /api/files/download 接口
+      </p>
+      <button>
+        下载文件
       </button>
       <h3>
         图片资源
