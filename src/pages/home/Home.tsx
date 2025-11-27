@@ -1,6 +1,6 @@
 import { useState } from 'react';
+import { Link } from 'react-router';
 import { useAsync } from 'rc-hooks';
-import router from '@/router';
 import PageContainer from '@/components/PageContainer';
 import { login } from '@/services/login';
 import { getLoginInfo, setLoginInfo, removeLoginInfo } from '@/utils/storage';
@@ -54,17 +54,7 @@ const Home = () => {
         <ul>
           {pages.map((item) => (
             <li key={item.name}>
-              {/* <Link to={item.link}>{item.name}</Link> */}
-              {/* 这里是为了演示 router 用法，建议使用 Link */}
-              <a
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  router.navigate(item.link);
-                }}
-              >
-                {item.name}
-              </a>
+              <Link to={item.link}>{item.name}</Link>
             </li>
           ))}
         </ul>
