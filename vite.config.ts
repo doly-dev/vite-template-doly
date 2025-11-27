@@ -35,7 +35,24 @@ export default defineConfig(({ mode }) => {
     base: '/',
     build: {
       outDir: BUILD_PATH,
-      sourcemap: !!GENERATE_SOURCEMAP
+      sourcemap: !!GENERATE_SOURCEMAP,
+      rollupOptions: {
+        output: {
+          // experimentalMinChunkSize: 20 * 1024,
+          manualChunks(id) {
+            if (
+              id.includes('/node_modules/react/') ||
+              id.includes('/node_modules/react-dom/') ||
+              id.includes('/node_modules/scheduler/')
+            ) {
+              return 'react';
+            }
+            // if (id.includes('/node_modules/')) {
+            //   return 'vendor';
+            // }
+          }
+        }
+      }
     },
     esbuild: {
       drop: isProd ? ['console', 'debugger'] : []
