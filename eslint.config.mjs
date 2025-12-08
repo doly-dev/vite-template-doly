@@ -1,11 +1,11 @@
 import eslint from '@eslint/js';
+import { defineConfig } from 'eslint/config';
 import tseslint from 'typescript-eslint';
 import globals from 'globals';
 import reactRefresh from 'eslint-plugin-react-refresh';
-// ref: https://github.com/facebook/react/issues/28313#issuecomment-2407428442
 import reactHooks from 'eslint-plugin-react-hooks';
 
-export default tseslint.config(
+export default defineConfig(
   {
     ignores: ['dist/', 'dist-analyze/', 'dev-dist/']
   },
