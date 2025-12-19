@@ -21,6 +21,10 @@
 
 ### 非组件模块中如何跳转页面？
 
+> 组件推荐使用 `useNavigate` 钩子。
+>
+> 开发模式下，热更新可能会导致 `router.navigate` 方法失效。
+
 使用 `src/router.tsx` ：
 
 ```typescript

@@ -39,8 +39,11 @@ const routes = defineRoutes([
 ]);
 
 /**
- * 页面跳转可以使用该模块
+ * 路由模块。
  *
+ * 在非组件模块中，页面跳转可以使用 `router.navigate` 方法。
+ *
+ * @see {@link https://reactrouter.com/api/data-routers/createHashRouter | createHashRouter }
  * @example
  * import router from '@/router'
  *
