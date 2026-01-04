@@ -11,7 +11,7 @@ const HEADER_TOKEN_NAME = 'Authorization'; // 请求头token名称
 interface IRequestOptions<D = any> extends Omit<AxiosRequestConfig<D>, 'url' | 'headers'> {
   headers?: Record<string, any>;
   // showLoading?: boolean;
-  // showErrorMessage = true;
+  // showErrorMessage?: boolean;
   token?: boolean;
   isDownload?: boolean;
 }
@@ -89,14 +89,15 @@ function request<T extends TResponse>(url: string, options?: IRequestOptions) {
     })
     .catch((err) => {
       // toastHandler?.close();
-
       // // 请求失败处理，一般是全局错误提示
-      // if (showErrorMessage && isObject(err) && err[RESPONSE_MESSAGE_FIELD]) {
-      //   delay(() => {
-      //     Toast.show(err[RESPONSE_MESSAGE_FIELD]);
-      //   }, 100);
+      // const resData: Record<string, any> = err?.response?.data || err || {};
+      // if (isObject(err.response) && err.response.status !== 200) {
+      //   Toast.show(
+      //     `Response Status ${err.response.status}。${resData[RESPONSE_MESSAGE_FIELD] || ''}`
+      //   );
+      // } else if (showErrorMessage && isObject(resData) && resData[RESPONSE_MESSAGE_FIELD]) {
+      //   Toast.show(resData[RESPONSE_MESSAGE_FIELD]);
       // }
-
       return Promise.reject(err);
     });
 }
