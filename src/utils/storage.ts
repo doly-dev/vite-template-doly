@@ -18,7 +18,7 @@ export const localCache = new Cache(STORE_NAMESPACE, {
 export const memoryCache = new Cache(STORE_NAMESPACE);
 
 /**浏览器存储 */
-const prefix = STORE_NAMESPACE + '_';
+const prefix = `${STORE_NAMESPACE}_`;
 /** session 存储 */
 export const session = new Storage(window.sessionStorage, { prefix });
 /** 本地存储 */
