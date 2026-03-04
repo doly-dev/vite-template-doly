@@ -30,14 +30,16 @@ exports[`renders correctly 1`] = `
       <ul>
         <li>
           <a
-            href="#"
+            data-discover="true"
+            href="#/repos/list"
           >
             列表页
           </a>
         </li>
         <li>
           <a
-            href="#"
+            data-discover="true"
+            href="#/abc"
           >
             不存在的页面
           </a>
