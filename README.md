@@ -81,6 +81,6 @@ pnpm commit                    # 运行 commitizen
 [rc-hooks]: https://doly-dev.github.io/rc-hooks/latest/index.html
 [doly-icons]: https://doly-dev.github.io/doly-icons/latest/index.html#/icons
 [antd-mobile]: https://mobile.ant.design/zh/
-[mobile-more]: https://doly-dev.github.io/mobile-more/latest/index.html#/
-[antd]: https://ant-design.antgroup.com/index-cn
-[antd-more]: https://doly-dev.github.io/mobile-more/latest/index.html#/
+[mobile-more]: https://mobile-more.vercel.app/
+[antd]: https://ant.design/
+[antd-more]: https://antd-more.vercel.app/
