@@ -1,7 +1,7 @@
 /// <reference types="vitest/config" />
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react-swc';
+import react from '@vitejs/plugin-react';
 import { mockDevServerPlugin } from 'vite-plugin-mock-dev-server';
 
 const { GENERATE_SOURCEMAP, BUILD_PATH, MOCK } = process.env;
@@ -36,32 +36,29 @@ export default defineConfig(({ mode }) => {
     build: {
       outDir: BUILD_PATH,
       sourcemap: !!GENERATE_SOURCEMAP,
-      // TODO vite8 重命名为 rolldownOptions
-      // ref: https://cn.vite.dev/guide/migration#other-related-deprecations
-      rollupOptions: {
+      rolldownOptions: {
         output: {
-          // experimentalMinChunkSize: 20 * 1024,
-          // TODO vite8 manualChunks 弃用函数形式，改为 codeSplitting 选项
-          // ref: https://cn.vite.dev/guide/migration#remove-object-form-build-rollupoptions-output-manualchunks-and-deprecate-function-form-one
-          manualChunks(id) {
-            if (
-              id.includes('/node_modules/react/') ||
-              id.includes('/node_modules/react-dom/') ||
-              id.includes('/node_modules/scheduler/')
-            ) {
-              return 'react';
+          // ref: https://rolldown.rs/in-depth/manual-code-splitting
+          codeSplitting: {
+            groups: [
+              {
+                test: /node_modules\/(react|react-dom|scheduler)\//,
+                name: 'react'
+              },
+              {
+                test: /node_modules/,
+                name: 'vendor'
+              }
+            ]
+          },
+          minify: {
+            compress: {
+              dropConsole: isProd,
+              dropDebugger: isProd
             }
-            // if (id.includes('/node_modules/')) {
-            //   return 'vendor';
-            // }
           }
         }
       }
-    },
-    // TODO vite8 esbuild drop 配置调整
-    // ref: https://cn.vite.dev/guide/migration#javascript-minification-by-oxc
-    esbuild: {
-      drop: isProd ? ['console', 'debugger'] : []
     },
 
     // https://cn.vitest.dev/guide/
