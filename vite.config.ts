@@ -36,9 +36,13 @@ export default defineConfig(({ mode }) => {
     build: {
       outDir: BUILD_PATH,
       sourcemap: !!GENERATE_SOURCEMAP,
+      // TODO vite8 重命名为 rolldownOptions
+      // ref: https://cn.vite.dev/guide/migration#other-related-deprecations
       rollupOptions: {
         output: {
           // experimentalMinChunkSize: 20 * 1024,
+          // TODO vite8 manualChunks 弃用函数形式，改为 codeSplitting 选项
+          // ref: https://cn.vite.dev/guide/migration#remove-object-form-build-rollupoptions-output-manualchunks-and-deprecate-function-form-one
           manualChunks(id) {
             if (
               id.includes('/node_modules/react/') ||
@@ -54,6 +58,8 @@ export default defineConfig(({ mode }) => {
         }
       }
     },
+    // TODO vite8 esbuild drop 配置调整
+    // ref: https://cn.vite.dev/guide/migration#javascript-minification-by-oxc
     esbuild: {
       drop: isProd ? ['console', 'debugger'] : []
     },

@@ -80,8 +80,5 @@
     "vite-plugin-mock-dev-server": "^2.1.0",
     "vitest": "^4.0.18",
     "web-vitals": "^5.1.0"
-  },
-  "engines": {
-    "node": ">=20"
   }
 }
