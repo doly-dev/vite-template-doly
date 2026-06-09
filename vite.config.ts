@@ -27,6 +27,9 @@ export default defineConfig(({ mode }) => {
         }
       }
     },
+    css: {
+      devSourcemap: true
+    },
     resolve: {
       alias: {
         '@': resolve(__dirname, './src')
